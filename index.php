@@ -2,392 +2,694 @@
 session_start();
 $login=$_SESSION['login'];
 $type=$_SESSION['type'];
+$usr_name=$_SESSION['name'];
 if($login)
 {
     ?>
 
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ela Admin - HTML5 Admin Template</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Able Pro Responsive Bootstrap 4 Admin Template by Phoenixcoded</title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+     <![endif]-->
 
-    <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+     <!-- Favicon icon -->
+     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
+     <!-- Google font-->
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+     <!-- iconfont -->
+     <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
 
-   <style>
-    #weatherWidget .currentDesc {
-        color: #ffffff!important;
-    }
-        .traffic-chart {
-            min-height: 335px;
-        }
-        #flotPie1  {
-            height: 150px;
-        }
-        #flotPie1 td {
-            padding:3px;
-        }
-        #flotPie1 table {
-            top: 20px!important;
-            right: -10px!important;
-        }
-        .chart-container {
-            display: table;
-            min-width: 270px ;
-            text-align: left;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-        #flotLine5  {
-             height: 105px;
-        }
+     <!-- simple line icon -->
+     <link rel="stylesheet" type="text/css" href="assets/icon/simple-line-icons/css/simple-line-icons.css">
 
-        #flotBarChart {
-            height: 150px;
-        }
-        #cellPaiChart{
-            height: 160px;
-        }
+     <!-- Required Fremwork -->
+     <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap/css/bootstrap.min.css">
 
-    </style>
-</head>
+     <!-- Weather css -->
+     <link href="assets/css/svg-weather.css" rel="stylesheet">
 
-<body>
-    <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
+     <!-- Echart js -->
+     <script src="assets/plugins/charts/echarts/js/echarts-all.js"></script>
+
+     <!-- Style.css -->
+     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+     <!-- Responsive.css-->
+     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+
+     <!--color css-->
+     <link rel="stylesheet" type="text/css" href="assets/css/color/color-1.min.css" id="color"/>
+
+ </head>
+ <body class="sidebar-mini fixed">
+    <div class="loader-bg">
+        <div class="loader-bar">
+        </div>
+    </div>
+    <div class="wrapper">
+    <!--   <div class="loader-bg">
+    <div class="loader-bar">
+    </div>
+</div> -->
+<!-- Navbar-->
+<header class="main-header-top hidden-print">
+    
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button--><a href="#!" data-toggle="offcanvas" class="sidebar-toggle"></a>
+        <!-- Navbar Right Menu-->
+        
+            <ul class="top-nav">
+                <!--Notification Menu-->
                     
-                    <li class="menu-title">Customer</li><!-- /.menu-title -->
-                    <li><a class="dropdown-toggle"  href="viewcustomer.php"><i class="menu-icon fa fa-th"></i>View Customer Details</a></li> 
-                    <li><a class="dropdown-toggle"  href="addservice.php"><i class="menu-icon fa fa-th"></i>Add service</a></li> 
-                    <li><a class="dropdown-toggle"  href="viewservice.php"><i class="menu-icon fa fa-th"></i>View Service</a></li>
-                    <li><a class="dropdown-toggle"  href="viewfeedback.php"><i class="menu-icon fa fa-th"></i>View Feedback</a></li>
-                    <li><a class="dropdown-toggle"  href="bookingdetails.php"><i class="menu-icon fa fa-th"></i>View Booking Details</a></li>
-                   <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-th"></i>View Purchase History</a></li>
-
-                          <li class="menu-title">Service Provider</li><!-- /.menu-title -->
-                    <li><a class="dropdown-toggle"  href="spaproval.php"><i class="menu-icon fa fa-table"></i>Approve/Reject</a></li>
-                        
-                        
-                    <li><a class="dropdown-toggle"  href="spdetails.php"><i class="menu-icon fa fa-th"></i>View service provider details</a></li>
-                    
-
-                    
-
-                    
-                    <li class="menu-title">Company</li><!-- /.menu-title -->
-                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-th"></i>View Company Details</a></li>
-                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-table"></i>Product Approval</a></li>
-                    <li><a class="dropdown-toggle"  href="#"> <i class="menu-icon fa fa-th"></i>View Product Details</a></li>
-                        
-                    
-                       
-                    </li>
-                    <li class="menu-title">Delivery Boy</li><!-- /.menu-title -->
-                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-table"></i>Add </a></li>
-                     <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-th"></i>View Delivery Boy Details</a></li>
-                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-table"></i>Send Customer details</a></li>
+                <li class="dropdown pc-rheader-submenu message-notification search-toggle">
+                    <a href="#!" id="morphsearch-search" class="drop icon-circle txt-white">
+                        <i class="icofont icofont-search-alt-1"></i>
+                    </a>
+                </li>
                 
-                
-                       
-                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside>
-    <!-- /#left-panel -->
-    <!-- Right Panel -->
-    <div id="right-panel" class="right-panel">
-        <!-- Header-->
-        <header id="header" class="header">
-            <div class="top-left">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="images/ad.jpg" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                        <!-- chat dropdown -->
+                        
+                        <!-- User Menu-->
+                        <li class="dropdown">
+                            <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
+                                <span><img class="img-circle " src="assets/images/avatar-1.png" style="width:40px;" alt="User Image"></span>
+                                <span> <?php echo " $usr_name "; ?> <i class=" icofont icofont-simple-down"></i></span>
+
+                            </a>
+                            <ul class="dropdown-menu settings-menu">
+                                <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
+                                <li><a href="profile.php"><i class="icon-user"></i> Profile</a></li>
+                                <li><a href="message.html"><i class="icon-envelope-open"></i> My Messages</a></li>
+                                <li class="p-0">
+                                    <div class="dropdown-divider m-0"></div>
+                                </li>
+                                <li><a href="lock-screen.html"><i class="icon-lock"></i> Lock Screen</a></li>
+                                <li><a href="logout.php"><i class="icon-logout"></i> Logout</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- search -->
+                    <div id="morphsearch" class="morphsearch">
+                        <form class="morphsearch-form">
+
+                            <input class="morphsearch-input" type="search" placeholder="Search..."/>
+
+                            <button class="morphsearch-submit" type="submit">Search</button>
+
+                        </form>
+                        <div class="morphsearch-content">
+                            <div class="dummy-column">
+                                <h2>People</h2>
+                                <a class="dummy-media-object" href="#!">
+                                    <img class="round" src="http://0.gravatar.com/avatar/81b58502541f9445253f30497e53c280?s=50&d=identicon&r=G" alt="Sara Soueidan"/>
+                                    <h3>Sara Soueidan</h3>
+                                </a>
+
+                                <a class="dummy-media-object" href="#!">
+                                    <img class="round" src="http://1.gravatar.com/avatar/9bc7250110c667cd35c0826059b81b75?s=50&d=identicon&r=G" alt="Shaun Dona"/>
+                                    <h3>Shaun Dona</h3>
+                                </a>
+                            </div>
+                            <div class="dummy-column">
+                                <h2>Popular</h2>
+                                <a class="dummy-media-object" href="#!">
+                                    <img src="assets/images/avatar-1.png" alt="PagePreloadingEffect"/>
+                                    <h3>Page Preloading Effect</h3>
+                                </a>
+
+                                <a class="dummy-media-object" href="#!">
+                                    <img src="assets/images/avatar-1.png" alt="DraggableDualViewSlideshow"/>
+                                    <h3>Draggable Dual-View Slideshow</h3>
+                                </a>
+                            </div>
+                            <div class="dummy-column">
+                                <h2>Recent</h2>
+                                <a class="dummy-media-object" href="#!">
+                                    <img src="assets/images/avatar-1.png" alt="TooltipStylesInspiration"/>
+                                    <h3>Tooltip Styles Inspiration</h3>
+                                </a>
+                                <a class="dummy-media-object" href="#!">
+                                    <img src="assets/images/avatar-1.png" alt="NotificationStyles"/>
+                                    <h3>Notification Styles Inspiration</h3>
+                                </a>
+                            </div>
+                        </div><!-- /morphsearch-content -->
+                        <span class="morphsearch-close"><i class="icofont icofont-search-alt-1"></i></span>
+                    </div>
+                    <!-- search end -->
                 </div>
-            </div>
-            <div class="top-right">
-                <div class="header-menu">
+            </nav>
+        </header>
+        <!-- Side-Nav-->
+        <aside class="main-sidebar hidden-print " >
+            <section class="sidebar" id="sidebar-scroll">
+                
+                
+                <!-- sidebar profile Menu-->
+                
+                <!-- Sidebar Menu-->
+                <ul class="sidebar-menu">
+                    <li class="nav-level"></li>
+                    <li class="active treeview">
+                        <a class="waves-effect waves-dark" href="index.php">
+                            <i class="icon-speedometer"></i><span> Dashboard</span>
+                        </a>                
+                    </li>
                     
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Service</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="viewservice.php"><i class="icon-arrow-right"></i>View Sevice</a></li>
+                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> View Booking history</a></li>
+                            <li><a class="waves-effect waves-dark" href="feedback.php"><i class="icon-arrow-right"></i> Add feedback</a></li>
+                            <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> View feedback</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> Shopping</span><i class="icon-arrow-down"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a class="waves-effect waves-dark" href="viewservice.php"><i class="icon-arrow-right"></i>View Sevice</a></li>
+                            <li><a class="waves-effect waves-dark" href="button.html"><i class="icon-arrow-right"></i><form action="bookinghistory.php" method="POST">
+    <input type="hidden" name="id" value="<?php echo $row['sid']; ?>"/>
+    <input type="submit" value="Booking History" class="btn btn-inverse-success">
+  </form></a></li>
+                            <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> Add feedback</a></li>
+                            <li><a class="waves-effect waves-dark" href="label-badge.html"><i class="icon-arrow-right"></i> View feedback</a></li>
 
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="images/img.png" alt="User Avatar">
-                        </a>
+                </ul>
+            </section>
+        </aside>
+        <!-- Sidebar chat start -->
+        <div id="sidebar" class="p-fixed header-users showChat">
+            <div class="had-container">
+                <div class="card card_main header-users-main">
+                    <div class="card-content user-box">
 
-                        <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                        <div class="md-group-add-on p-20">
+                           <span class="md-add-on">
+                            <i class="icofont icofont-search-alt-2 chat-search"></i>
+                        </span>
+                        <div class="md-input-wrapper">
+                            <input type="text" class="md-form-control"  name="username" id="search-friends">
+                            <label>Search</label>
+                        </div>
 
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications </a>
+                    </div>
+                    <div class="media friendlist-main">
 
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                        <h6>Friend List</h6>
 
-                            <a class="nav-link" href="logout.php"><i class="fa fa-power -off"></i>Logout</a>
+                    </div>
+                    <div class="main-friend-list">
+                        <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Josephin Doe</div>
+                                <span>20min ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice"  data-toggle="tooltip" data-placement="left" title="Alice">
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Alice</div>
+                                <span>1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="7" data-status="offline" data-username="Michael Scofield" data-toggle="tooltip" data-placement="left" title="Michael Scofield">
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                                <div class="live-status bg-danger"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Michael Scofield</div>
+                                <span>3 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="5" data-status="online" data-username="Irina Shayk" data-toggle="tooltip" data-placement="left" title="Irina Shayk">
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-4.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Irina Shayk</div>
+                                <span>1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="6" data-status="offline" data-username="Sara Tancredi" data-toggle="tooltip" data-placement="left" title="Sara Tancredi">
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-5.png" alt="Generic placeholder image">
+                                <div class="live-status bg-danger"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Sara Tancredi</div>
+                                <span>2 days ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Josephin Doe</div>
+                                <span>20min ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Alice</div>
+                                <span>1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Josephin Doe</div>
+                                <span>20min ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Alice</div>
+                                <span>1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip"  data-placement="left" title="Josephin Doe">
+
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Josephin Doe</div>
+                                <span>20min ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="3" data-status="online" data-username="Alice"  data-toggle="tooltip" data-placement="left" title="Alice">
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Alice</div>
+                                <span>1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Josephin Doe</div>
+                                <span>20min ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Josephin Doe</div>
+                                <span>20min ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Josephin Doe</div>
+                                <span>20min ago</span>
+                            </div>
+                        </div>
+                        <div class="media friendlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                            <a class="media-left" href="#!">
+                                <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                <div class="live-status bg-success"></div>
+                            </a>
+                            <div class="media-body">
+                                <div class="friend-header">Josephin Doe</div>
+                                <span>20min ago</span>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-        </header>
-        <!-- /#header -->
-        <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
-                <!-- Widgets  -->
-                <?php echo "<font size=5 color=blue>Welcome: $type";?>
-               
-                <!-- /Widgets -->
-                <!--  Traffic  -->
-                
-    <!-- /#right-panel -->
+        </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    </div>
+    <div class="showChat_inner">
+        <div class="media chat-inner-header">
+            <a class="back_chatBox">
+                <i class="icofont icofont-rounded-left"></i> Josephin Doe
+            </a>
+        </div>
+        <div class="media chat-messages">
+            <a class="media-left photo-table" href="#!">
+                <img class="media-object img-circle m-t-5" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                <div class="live-status bg-success"></div>
+            </a>
+            <div class="media-body chat-menu-content">
+                <div class="">
+                    <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                    <p class="chat-time">8:20 a.m.</p>
+                </div>
+            </div>
+        </div>
+        <div class="media chat-messages">
+            <div class="media-body chat-menu-reply">
+                <div class="">
+                    <p class="chat-cont">I'm just looking around. Will you tell me something about yourself?</p>
+                    <p class="chat-time">8:20 a.m.</p>
+                </div>
+            </div>
+            <div class="media-right photo-table">
+                <a href="#!">
+                    <img class="media-object img-circle m-t-5" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                    <div class="live-status bg-success"></div>
+                </a>
+            </div>
+        </div>
+        <div class="media chat-reply-box">
+            <div class="md-input-wrapper">
+                <input type="text" class="md-form-control" id="inputEmail" name="inputEmail" >
+                <label>Share your thoughts</label>
+                <span class="highlight"></span>
+                <span class="bar"></span>  <button type="button" class="chat-send waves-effect waves-light">
+                <i class="icofont icofont-location-arrow f-20 "></i>
+            </button>
 
-    <!--  Chart js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
+            <button type="button" class="chat-send waves-effect waves-light">
+                <i class="icofont icofont-location-arrow f-20 "></i>
+            </button>
+        </div>
 
-    <!--Chartist Chart-->
-    <script src="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartist-plugin-legend@0.6.2/chartist-plugin-legend.min.js"></script>
+    </div>
+</div>
+<!-- Sidebar chat end-->
+<div class="content-wrapper">
+        <!-- Container-fluid starts -->
+       <div class="container-fluid">
+      <!-- Main content starts -->
+      
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
+<section class="panels-wells">
 
-    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
-    <script src="assets/js/init/weather-init.js"></script>
+      <div class="card">
+       <div class="card-header"><h5 class="card-header-text">Services</h5></div>
+        <div class="card-block">
+          <div class="row">
+           
 
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-    <script src="assets/js/init/fullcalendar-init.js"></script>
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-success">
+              <div class="panel-heading bg-success">
+               Computer Service
+              </div>
+              <div class="panel-body">
+                <p> &nbsp; Desktops are a lifeline for many professionals. Don’t worry if you break it again, We will repair it at your home with just a couple of clicks. For bigger problems, we will collect, repair and deliver it your home on time. We provide verified computer service professionals to deliver high quality desktop service and repair in Kochi at affordable price.
 
-    <!--Local Stuff-->
-    <script>
-        jQuery(document).ready(function($) {
-            "use strict";
+              </p>
+              </div>
+              
+            </div>
+          </div>
 
-            // Pie chart flotPie1
-            var piedata = [
-                { label: "Desktop visits", data: [[1,32]], color: '#5c6bc0'},
-                { label: "Tab visits", data: [[1,33]], color: '#ef5350'},
-                { label: "Mobile visits", data: [[1,35]], color: '#66bb6a'}
-            ];
 
-            $.plot('#flotPie1', piedata, {
-                series: {
-                    pie: {
-                        show: true,
-                        radius: 1,
-                        innerRadius: 0.65,
-                        label: {
-                            show: true,
-                            radius: 2/3,
-                            threshold: 1
-                        },
-                        stroke: {
-                            width: 0
-                        }
-                    }
-                },
-                grid: {
-                    hoverable: true,
-                    clickable: true
-                }
-            });
-            // Pie chart flotPie1  End
-            // cellPaiChart
-            var cellPaiChart = [
-                { label: "Direct Sell", data: [[1,65]], color: '#5b83de'},
-                { label: "Channel Sell", data: [[1,35]], color: '#00bfa5'}
-            ];
-            $.plot('#cellPaiChart', cellPaiChart, {
-                series: {
-                    pie: {
-                        show: true,
-                        stroke: {
-                            width: 0
-                        }
-                    }
-                },
-                legend: {
-                    show: false
-                },grid: {
-                    hoverable: true,
-                    clickable: true
-                }
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-warning">
+              <div class="panel-heading bg-warning">
+               Pest Control Service
+              </div>
+              <div class="panel-body">
+                <p> Our partners will visit the site and decide on the best course of action. And it is totally safe since they use herbal products.we connect you with experts in your locality who present pest control services at your convenience. You can see that the quality of pest control services offered by our experts at affordable prices. We promise you 100% satisfaction on our services.
 
-            });
-            // cellPaiChart End
-            // Line Chart  #flotLine5
-            var newCust = [[0, 3], [1, 5], [2,4], [3, 7], [4, 9], [5, 3], [6, 6], [7, 4], [8, 10]];
+               </p>
+              </div>
+             
+            </div>
+          </div>
 
-            var plot = $.plot($('#flotLine5'),[{
-                data: newCust,
-                label: 'New Data Flow',
-                color: '#fff'
-            }],
-            {
-                series: {
-                    lines: {
-                        show: true,
-                        lineColor: '#fff',
-                        lineWidth: 2
-                    },
-                    points: {
-                        show: true,
-                        fill: true,
-                        fillColor: "#ffffff",
-                        symbol: "circle",
-                        radius: 3
-                    },
-                    shadowSize: 0
-                },
-                points: {
-                    show: true,
-                },
-                legend: {
-                    show: false
-                },
-                grid: {
-                    show: false
-                }
-            });
-            // Line Chart  #flotLine5 End
-            // Traffic Chart using chartist
-            if ($('#traffic-chart').length) {
-                var chart = new Chartist.Line('#traffic-chart', {
-                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-                  series: [
-                  [0, 18000, 35000,  25000,  22000,  0],
-                  [0, 33000, 15000,  20000,  15000,  300],
-                  [0, 15000, 28000,  15000,  30000,  5000]
-                  ]
-              }, {
-                  low: 0,
-                  showArea: true,
-                  showLine: false,
-                  showPoint: false,
-                  fullWidth: true,
-                  axisX: {
-                    showGrid: true
-                }
-            });
 
-                chart.on('draw', function(data) {
-                    if(data.type === 'line' || data.type === 'area') {
-                        data.element.animate({
-                            d: {
-                                begin: 2000 * data.index,
-                                dur: 2000,
-                                from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
-                                to: data.path.clone().stringify(),
-                                easing: Chartist.Svg.Easing.easeOutQuint
-                            }
-                        });
-                    }
-                });
-            }
-            // Traffic Chart using chartist End
-            //Traffic chart chart-js
-            if ($('#TrafficChart').length) {
-                var ctx = document.getElementById( "TrafficChart" );
-                ctx.height = 150;
-                var myChart = new Chart( ctx, {
-                    type: 'line',
-                    data: {
-                        labels: [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul" ],
-                        datasets: [
-                        {
-                            label: "Visit",
-                            borderColor: "rgba(4, 73, 203,.09)",
-                            borderWidth: "1",
-                            backgroundColor: "rgba(4, 73, 203,.5)",
-                            data: [ 0, 2900, 5000, 3300, 6000, 3250, 0 ]
-                        },
-                        {
-                            label: "Bounce",
-                            borderColor: "rgba(245, 23, 66, 0.9)",
-                            borderWidth: "1",
-                            backgroundColor: "rgba(245, 23, 66,.5)",
-                            pointHighlightStroke: "rgba(245, 23, 66,.5)",
-                            data: [ 0, 4200, 4500, 1600, 4200, 1500, 4000 ]
-                        },
-                        {
-                            label: "Targeted",
-                            borderColor: "rgba(40, 169, 46, 0.9)",
-                            borderWidth: "1",
-                            backgroundColor: "rgba(40, 169, 46, .5)",
-                            pointHighlightStroke: "rgba(40, 169, 46,.5)",
-                            data: [1000, 5200, 3600, 2600, 4200, 5300, 0 ]
-                        }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        tooltips: {
-                            mode: 'index',
-                            intersect: false
-                        },
-                        hover: {
-                            mode: 'nearest',
-                            intersect: true
-                        }
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-info">
+              <div class="panel-heading bg-info">
+               Painting
+              </div>
+              <div class="panel-body">
+                <p>Painters are hard to get nowadays. Furniture painting or repainting your house. Our partners will complete your needs in the shortest time possible.professional painters prepare and paint interior and exterior surfaces. Job duties for professional painters include removing old paint, choosing materials, selecting and mixing colors.100% Satisfaction or free rework.</p>
+              </div>
+             
+            </div>
+          </div>
 
-                    }
-                } );
-            }
-            //Traffic chart chart-js  End
-            // Bar Chart #flotBarChart
-            $.plot("#flotBarChart", [{
-                data: [[0, 18], [2, 8], [4, 5], [6, 13],[8,5], [10,7],[12,4], [14,6],[16,15], [18, 9],[20,17], [22,7],[24,4], [26,9],[28,11]],
-                bars: {
-                    show: true,
-                    lineWidth: 0,
-                    fillColor: '#ffffff8a'
-                }
-            }], {
-                grid: {
-                    show: false
-                }
-            });
-            // Bar Chart #flotBarChart End
-        });
+           
+          <!-- end of row -->
+        </div>
+
+      </div>
+      <div class="card-block">
+          <div class="row">
+           
+
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-success">
+              <div class="panel-heading bg-success">
+               Carpentry Service
+              </div>
+              <div class="panel-body">
+                <p> &nbsp; Are you in need of carpentry repairs? Then have a look at AtoZ service app/website. We provide a skillful professional to help you within the slot-time. You can book your registrations through the website or by a call. Our technician deals with all kinds of repairs very efficiently at a reasonable cost. we provide service to all carpentry works in a well-organized manner.
+
+              </p>
+              </div>
+              
+            </div>
+          </div>
+
+
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-warning">
+              <div class="panel-heading bg-warning">
+               Electrical Service
+              </div>
+              <div class="panel-body">
+                <p> We can not imagine our lives without electricity, to run any device we require power. when you are in need of any repairs just remember we are here to help you surely. Just make a click on our website , you can also check-out services. We send you a well-trained professional to your home at a reasonable service cost. We provide service within slot-time of your choice.
+
+               </p>
+              </div>
+             
+            </div>
+          </div>
+
+
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-info">
+              <div class="panel-heading bg-info">
+               Plumbing
+              </div>
+              <div class="panel-body">
+                <p> Our partner plumber will reach you at the earliest and fix the problem. We have fixed charge depending on time worked and all our partners are background verified. We offer the best quality service within slot-time.Damaged parts are also replaced at a reasonable cost to your great satisfaction.We do all repairs like drain cleaning, leaking taps, taps fitting etc..</p>
+              </div>
+                 
+            </div>
+          </div>
+
+           
+          <!-- end of row -->
+        </div>
+        
+      </div>
+      <div class="card-block">
+          <div class="row">
+           
+
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-success">
+              <div class="panel-heading bg-success">
+               Cleaning 
+              </div>
+              <div class="panel-body">
+                <p> &nbsp; We have a history of excellence and dedication to our clients, providing professional and high-quality house cleaning services across Kerala.Our team of professionals use the most hygienic and technically advanced cleaning approaches that leave nothing but a wide smile on our customers  face. offers premium cleaning services for your residential and commercial premises.
+
+              </p>
+              </div>
+             
+            </div>
+          </div>
+
+
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-warning">
+              <div class="panel-heading bg-warning">
+               Beauty Service
+              </div>
+              <div class="panel-body">
+                <p> our partners will visit you at location at your convenient time.Our  experienced hair stylists who will straighten your hair at the comfort of your home without damaging it.Applying mehendi is an art by, itself requiring great skill. Our partners will add elegance to you looks for any kind function.The right hair color and dye for you hair can be hard to find and even harder to apply without professional care. 
+
+
+
+
+
+               </p>
+              </div>
+              
+            </div>
+          </div>
+
+
+            <div class="col-xl-4 col-lg-8 col-md-8 col-sm-10">
+             <div class="panel panel-info">
+              <div class="panel-heading bg-info">
+               Ac Service
+              </div>
+              <div class="panel-body">
+                <p> &nbsp;A broken AC on a hot summer day is troublesome. Our Experienced AC MECHANIC partner will fix your AC on spot or take the broken parts for repair. All of our partners are background verified. Our air conditioner services includes, AC regular service, AC full service, AC repair, AC installation and removal. Our partner ensures 100% satisfaction and offers upto 60 days warranty services on the service.</p>
+              </div>
+             
+            </div>
+          </div>
+
+           
+          <!-- end of row -->
+        </div>
+        
+      </div>
+    </div>
+   
+</section>
+</div>
+        <!-- Container-fluid ends -->
+     </div>
+</div>
+<!-- Warning Section Starts -->
+<!-- Older IE warning message -->
+<!--[if lt IE 9]>
+<div class="ie-warning">
+    <h1>Warning!!</h1>
+    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+    <div class="iew-container">
+        <ul class="iew-download">
+            <li>
+                <a href="http://www.google.com/chrome/">
+                    <img src="assets/images/browser/chrome.png" alt="Chrome">
+                    <div>Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.mozilla.org/en-US/firefox/new/">
+                    <img src="assets/images/browser/firefox.png" alt="Firefox">
+                    <div>Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.opera.com">
+                    <img src="assets/images/browser/opera.png" alt="Opera">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/safari/">
+                    <img src="assets/images/browser/safari.png" alt="Safari">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                    <img src="assets/images/browser/ie.png" alt="">
+                    <div>IE (9 & above)</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <p>Sorry for the inconvenience!</p>
+</div>
+<![endif]-->
+<!-- Warning Section Ends -->
+
+<!-- Required Jqurey -->
+<!-- Required Jqurey -->
+<script src="assets/plugins/jquery/dist/jquery.min.js"></script>
+<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/plugins/tether/dist/js/tether.min.js"></script>
+
+<!-- Required Fremwork -->
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- waves effects.js -->
+<script src="assets/plugins/Waves/waves.min.js"></script>
+
+<!-- Scrollbar JS-->
+<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+<script src="assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+
+<!--classic JS-->
+<script src="assets/plugins/classie/classie.js"></script>
+
+<!-- notification -->
+<script src="assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+
+<!-- custom js -->
+<script type="text/javascript" src="assets/js/main.min.js"></script>
+<script type="text/javascript" src="assets/pages/elements.js"></script>
+<script src="assets/js/menu.min.js"></script>
+
+      <script>
+        var $window = $(window);
+        var nav = $('.fixed-button');
+        $window.scroll(function(){
+            if ($window.scrollTop() >= 200) {
+             nav.addClass('active');
+         }
+         else {
+             nav.removeClass('active');
+         }
+     });
     </script>
 </body>
+
 </html>
 <?php
 }
 else
-header("location:/meenuminipro/login");
+header('location:/meenuminipro/login');
 ?>
