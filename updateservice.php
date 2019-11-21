@@ -1,3 +1,9 @@
+
+<?php 
+include 'co.php'; 
+$se=" select * from addservice";
+ $re=mysqli_query($con,$se);
+?>
 <?php
 session_start();
 $login=$_SESSION['login'];
@@ -5,13 +11,6 @@ $type=$_SESSION['type'];
 if($login)
 {
     ?>
-<?php 
-include 'co.php'; 
-$se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spreg.disid=district.disid && spreg.sid=addservice.sid";
- $re=mysqli_query($con,$se);
-?>
-
-
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -57,9 +56,9 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                     <li class="menu-title">Customer</li><!-- /.menu-title -->
                     <li><a class="dropdown-toggle"  href="viewcustomer.php"><i class="menu-icon fa fa-th"></i>View Customer Details</a></li>
                     <li><a class="dropdown-toggle"  href="addservice.php"><i class="menu-icon fa fa-th"></i>Add service</a></li>
-                    <li><a class="dropdown-toggle"  href="viewservice.php"><i class="menu-icon fa fa-th"></i>View Service</a></li>
-                    <li><a class="dropdown-toggle"  href="viewfeedback.php"><i class="menu-icon fa fa-th"></i>View Feedback</a></li>
-                    <li><a class="dropdown-toggle"  href="bookingdetails.php"><i class="menu-icon fa fa-th"></i>View Booking History</a></li>
+                    <li><a class="dropdown-toggle"  href="updateservice.php"><i class="menu-icon fa fa-th"></i>Update Services</a></li> 
+                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-th"></i>View Feedback</a></li>
+                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-th"></i>View Booking History</a></li>
                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-th"></i>View Purchase History</a></li>
 
                           <li class="menu-title">Service Provider</li><!-- /.menu-title -->
@@ -67,7 +66,7 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                         
                         
                     <li><a class="dropdown-toggle"  href="spdetails.php"><i class="menu-icon fa fa-th"></i>View approved service provider details</a></li>
-                    <li><a class="dropdown-toggle"  href="rejectlist.php"><i class="menu-icon fa fa-th"></i>View rejected service provider details</a></li>
+                     <li><a class="dropdown-toggle"  href="rejectlist.php"><i class="menu-icon fa fa-th"></i>View rejected service provider details</a></li>
                     
 
                     
@@ -147,9 +146,9 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                         <div class="page-header float-right">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="#">SERVICE PROVIDER</a></li>
+                                    <li><a href="#">CUSTOMER</a></li>
                                     
-                                    <li class="active">Approve/Reject</li>
+                                    <li class="active"> Update Service</li>
                                 </ol>
                             </div>
                         </div>
@@ -164,23 +163,18 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                     <div class="">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Approve/Reject</strong>
+                                <strong class="card-title">View Service Provider Details</strong>
                             </div>
                             <div class="table-stats order-table ov-h">
                                 <table class="table ">
                                     <thead>
                                         <tr> 
-                                            <th>Name</th>
-                                            <th>phoneno</th>
-                                            <th>Email</th>
-                                            <th>Gender</th>
-                                             <th>Dob</th>
-                                             <th>Housename</th>
-                                           <th>District</th>
-                                            <th>City</th>
-                                            <th>Pincode</th>
-                                            <th>Service Category</th>
-                                             <th>Id Proof</th>
+                                            <th> Service Name</th>
+                                            <th>Image</th>
+                                            <th>Description</th>
+                                            <th>Price Details</th>
+                                             <th>General Instructions</th>
+                                             
                                              
                                         </tr>
                                     </thead>
@@ -190,72 +184,39 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                                         {
                                           ?>
                                           <tbody>
-                                        <tr>
+                                                    <tr>
                                <td style="font-size: 15px;"> 
                                <?php 
-                                echo $row['name'];
+                                echo $row['service'];
                                  ?>
                                </td>
                                 <td style="font-size: 15px;"> 
                                   <?php 
-                               echo $row['phoneno'];
+                               echo $row['image'];
                                 ?>
                                    </td>
                                    <td style="font-size: 15px;"> 
                                   <?php 
-                               echo $row['email'];
+                               echo $row['description'];
                                 ?>
                                    </td>
                               <td style="font-size: 15px;">
                                 <?php
-                                 echo $row['gender'];
+                                 echo $row['pricedetails'];
                                  ?>
                               </td>
                                <td style="font-size: 15px;">
                                  <?php
-                             echo $row['dob'];
+                             echo $row['instructions'];
                                  ?>
                                   </td>
-                                  <td style="font-size: 15px;"> 
-                                  <?php 
-                               echo $row['housename'];
-                                ?>
-                                   </td>
-                                <td style="font-size:15px;">
-                                  <?php
-                                echo $row['disname'];
-                                 ?>
-                                 </td>
-                                <td style="font-size: 15px;">
-                                 <?php
-                                echo $row['city'];
-                                ?>
-                                   </td>
-                                <td style="font-size: 15px;">
-                                 <?php
-                               echo $row['pincode'];
-                                 ?>
-                               </td>
-                                <td style="font-size: 15px;">
-                                 <?php
-                               echo $row['service'];
-                               ?>
-                                </td>
-                               <td style="font-size: 15px;">
-                               <a href="/meenuminipro/spreg/upload/<?php echo $row['idproof'] ?>" target="_blank">view proof</a>
-                              </td>
-                                 <td>
-                          <form action="approve.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['logid']; ?>"/>
-    <input type="submit" value="Approval">
+                                  <td>
+                          <form action="" method="POST">
+    <input type="hidden" name="id"/>
+    <input type="submit" value="Update">
   </form>
                   </td>
-              <td>
-  <form action="reject.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['logid']; ?>"/>
-    <input type="submit" value="reject">
-  </form>
-  </td>
+                                  
 </tr>
 <?php
 }
@@ -277,7 +238,7 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
 <footer class="site-footer">
     <div class="footer-inner bg-white">
         <div class="row">
-            
+           
             <div class="col-sm-6 text-right">
                 Designed by Meenu John
             </div>

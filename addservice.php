@@ -1,18 +1,13 @@
-<?php
+
+
+ <?php
 session_start();
 $login=$_SESSION['login'];
 $type=$_SESSION['type'];
 if($login)
 {
     ?>
-<?php 
-include 'co.php'; 
-$se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spreg.disid=district.disid && spreg.sid=addservice.sid";
- $re=mysqli_query($con,$se);
-?>
-
-
-<!doctype html>
+ <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -44,20 +39,17 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
 <body>
     <!-- Left Panel -->
 
-    <aside id="left-panel" class="left-panel">
+   <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.php"><?php echo "<font color=blue>Welcome: $type";?></a>
+                         <a href="index.php"><?php echo "<font color=blue>Welcome: $type";?></a>
+                        
                     </li>
-                    
-
-                       
                     <li class="menu-title">Customer</li><!-- /.menu-title -->
-                    <li><a class="dropdown-toggle"  href="viewcustomer.php"><i class="menu-icon fa fa-th"></i>View Customer Details</a></li>
-                    <li><a class="dropdown-toggle"  href="addservice.php"><i class="menu-icon fa fa-th"></i>Add service</a></li>
-                    <li><a class="dropdown-toggle"  href="viewservice.php"><i class="menu-icon fa fa-th"></i>View Service</a></li>
+                    <li><a class="dropdown-toggle"  href="viewcustomer.php"><i class="menu-icon fa fa-th"></i>View Customer Details</a></li> <li><a class="dropdown-toggle"  href="addservice.php"><i class="menu-icon fa fa-th"></i>Add Services</a></li>
+                     <li><a class="dropdown-toggle"  href="viewservice.php"><i class="menu-icon fa fa-th"></i>View Service</a></li>
                     <li><a class="dropdown-toggle"  href="viewfeedback.php"><i class="menu-icon fa fa-th"></i>View Feedback</a></li>
                     <li><a class="dropdown-toggle"  href="bookingdetails.php"><i class="menu-icon fa fa-th"></i>View Booking History</a></li>
                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-th"></i>View Purchase History</a></li>
@@ -99,6 +91,7 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
+
         <!-- Header-->
         <header id="header" class="header">
             <div class="top-left">
@@ -127,7 +120,6 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                             <a class="nav-link" href="logout.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </header><!-- /header -->
@@ -147,9 +139,9 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                         <div class="page-header float-right">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="#">SERVICE PROVIDER</a></li>
+                                    <li><a href="#">Customer</a></li>
                                     
-                                    <li class="active">Approve/Reject</li>
+                                    <li class="active">Add Service</li>
                                 </ol>
                             </div>
                         </div>
@@ -160,130 +152,76 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
 
         <div class="content">
             <div class="animated fadeIn">
-                <div class="row">
-                    <div class="">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">Approve/Reject</strong>
-                            </div>
-                            <div class="table-stats order-table ov-h">
-                                <table class="table ">
-                                    <thead>
-                                        <tr> 
-                                            <th>Name</th>
-                                            <th>phoneno</th>
-                                            <th>Email</th>
-                                            <th>Gender</th>
-                                             <th>Dob</th>
-                                             <th>Housename</th>
-                                           <th>District</th>
-                                            <th>City</th>
-                                            <th>Pincode</th>
-                                            <th>Service Category</th>
-                                             <th>Id Proof</th>
-                                             
-                                        </tr>
-                                    </thead>
-                                       <?php
-                                       while($row=mysqli_fetch_array($re))
-  
-                                        {
-                                          ?>
-                                          <tbody>
-                                        <tr>
-                               <td style="font-size: 15px;"> 
-                               <?php 
-                                echo $row['name'];
-                                 ?>
-                               </td>
-                                <td style="font-size: 15px;"> 
-                                  <?php 
-                               echo $row['phoneno'];
-                                ?>
-                                   </td>
-                                   <td style="font-size: 15px;"> 
-                                  <?php 
-                               echo $row['email'];
-                                ?>
-                                   </td>
-                              <td style="font-size: 15px;">
-                                <?php
-                                 echo $row['gender'];
-                                 ?>
-                              </td>
-                               <td style="font-size: 15px;">
-                                 <?php
-                             echo $row['dob'];
-                                 ?>
-                                  </td>
-                                  <td style="font-size: 15px;"> 
-                                  <?php 
-                               echo $row['housename'];
-                                ?>
-                                   </td>
-                                <td style="font-size:15px;">
-                                  <?php
-                                echo $row['disname'];
-                                 ?>
-                                 </td>
-                                <td style="font-size: 15px;">
-                                 <?php
-                                echo $row['city'];
-                                ?>
-                                   </td>
-                                <td style="font-size: 15px;">
-                                 <?php
-                               echo $row['pincode'];
-                                 ?>
-                               </td>
-                                <td style="font-size: 15px;">
-                                 <?php
-                               echo $row['service'];
-                               ?>
-                                </td>
-                               <td style="font-size: 15px;">
-                               <a href="/meenuminipro/spreg/upload/<?php echo $row['idproof'] ?>" target="_blank">view proof</a>
-                              </td>
-                                 <td>
-                          <form action="approve.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['logid']; ?>"/>
-    <input type="submit" value="Approval">
-  </form>
-                  </td>
-              <td>
-  <form action="reject.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['logid']; ?>"/>
-    <input type="submit" value="reject">
-  </form>
-  </td>
-</tr>
-<?php
-}
-?>
 
-                                    </tbody>
-                                </table>
-                            </div> <!-- /.table-stats -->
-                        </div>
-                    </div>
+
+                <div class="row">
                     
 
-        </div>
-    </div><!-- .animated -->
-</div><!-- .content -->
+                    <div class="col-lg-6" style="margin-left: auto; margin-right: auto;">
+                        <div class="card">
+                            <div class="card-header"><strong>Add Service</strong></div>
+                            <div class="card-body card-block">
+                               <form  action="addservice.php" method="POST" enctype="multipart/form-data">
+                                <div class="row form-group">
+                                        <div class="col col-md-3"><label for="select" class=" form-control-label">Service</label></div><br><br>
+                                        <div class="col-12 col-md-9">
+                                        <input type="text" name="service" id="service" class="form-control" required="">
+                                          
 
-<div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    
+                                     
+ 
 
-<footer class="site-footer">
-    <div class="footer-inner bg-white">
-        <div class="row">
-            
-            <div class="col-sm-6 text-right">
+
+
+                         <div class="form-group"><label for="country" class=" form-control-label">Description</label><textarea  type="text" id="des"  class="form-control" name="des" required=""></textarea></div>
+                           <div class="form-group"><label for="country" class=" form-control-label">Price Details</label><textarea  type="text" id="price"  class="form-control" name="price" required=""></textarea></div>
+                                 <div class="form-group"><label for="country" class=" form-control-label">General Instructions</label><textarea  type="text" id="ins"  class="form-control" name="ins" required=""></textarea></div>
+                               
+                               
+                                
+                               
+
+                                <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm" name="submit">ADD</button></div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+
+                
+
+                
+
+               
+               
+
+                
+
+               
+
+            </div>
+
+
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+    <div class="clearfix"></div>
+
+    <footer class="site-footer">
+        <div class="footer-inner bg-white">
+            <div class="row">
+               <div class="col-sm-6 text-right">
                 Designed by Meenu John
             </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 </div><!-- /#right-panel -->
 
@@ -299,6 +237,58 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
 
 </body>
 </html>
+<?php
+  
+include 'co.php';
+
+    if(isset($_POST['submit']))
+    {
+      $a=$_POST['service'];
+      $b=$_POST['des'];
+       $c=$_POST['price'];
+       $d=$_POST['ins'];
+       $s="select * from addservice where service='$a'";
+       $result=mysqli_query($con,$s);
+       $rowcount=mysqli_num_rows($result);
+       if($rowcount==0)
+       {
+
+
+     /*$img=$_FILES["file"]["name"];
+      $target_dir = "upload/";
+      $target_file = $target_dir . basename($_FILES["file"]["name"]);
+      move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+     $image=$target_file;*/
+       
+      
+             $sqll="insert into addservice(service,description,pricedetails,instructions)values('$a','$b','$c','$d')";
+              $ch=mysqli_query($con,$sqll);
+              if($ch)
+                  {?>
+                     <script>
+                     alert("Added successfully");
+                      </script>
+                      <?php
+                  }
+              else
+                  {
+                     echo"error:".$sqll."<br>".mysqli_error($con);
+                  }
+
+
+             }
+             else
+             {?>
+              <script>
+                alert("service already exists")
+              </script>
+              <?php
+             }     
+              }
+    
+    
+        mysqli_close($con);
+    ?>
 <?php
 }
 else

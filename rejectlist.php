@@ -7,7 +7,7 @@ if($login)
     ?>
 <?php 
 include 'co.php'; 
-$se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spreg.disid=district.disid && spreg.sid=addservice.sid";
+$se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=-1 && spreg.disid=district.disid && spreg.sid=addservice.sid";
  $re=mysqli_query($con,$se);
 ?>
 
@@ -56,9 +56,9 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                        
                     <li class="menu-title">Customer</li><!-- /.menu-title -->
                     <li><a class="dropdown-toggle"  href="viewcustomer.php"><i class="menu-icon fa fa-th"></i>View Customer Details</a></li>
-                    <li><a class="dropdown-toggle"  href="addservice.php"><i class="menu-icon fa fa-th"></i>Add service</a></li>
-                    <li><a class="dropdown-toggle"  href="viewservice.php"><i class="menu-icon fa fa-th"></i>View Service</a></li>
+                    <li><a class="dropdown-toggle"  href="addservice.php"><i class="menu-icon fa fa-th"></i>Add service</a></li> 
                     <li><a class="dropdown-toggle"  href="viewfeedback.php"><i class="menu-icon fa fa-th"></i>View Feedback</a></li>
+                    <li><a class="dropdown-toggle"  href="viewservice.php"><i class="menu-icon fa fa-th"></i>View Service</a></li>
                     <li><a class="dropdown-toggle"  href="bookingdetails.php"><i class="menu-icon fa fa-th"></i>View Booking History</a></li>
                    <li><a class="dropdown-toggle"  href="#"><i class="menu-icon fa fa-th"></i>View Purchase History</a></li>
 
@@ -149,7 +149,7 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                                 <ol class="breadcrumb text-right">
                                     <li><a href="#">SERVICE PROVIDER</a></li>
                                     
-                                    <li class="active">Approve/Reject</li>
+                                    <li class="active">Rejected list</li>
                                 </ol>
                             </div>
                         </div>
@@ -164,7 +164,7 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                     <div class="">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Approve/Reject</strong>
+                                <strong class="card-title">Rejected List</strong>
                             </div>
                             <div class="table-stats order-table ov-h">
                                 <table class="table ">
@@ -244,18 +244,7 @@ $se=" select * from `spreg`,`district`,`addservice` WHERE spreg.status=0 && spre
                                <td style="font-size: 15px;">
                                <a href="/meenuminipro/spreg/upload/<?php echo $row['idproof'] ?>" target="_blank">view proof</a>
                               </td>
-                                 <td>
-                          <form action="approve.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['logid']; ?>"/>
-    <input type="submit" value="Approval">
-  </form>
-                  </td>
-              <td>
-  <form action="reject.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo $row['logid']; ?>"/>
-    <input type="submit" value="reject">
-  </form>
-  </td>
+                                 
 </tr>
 <?php
 }
